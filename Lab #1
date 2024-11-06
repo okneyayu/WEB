@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сторінка з трьома типами розмітки</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Спільні стилі для всіх блоків */
+        .top, .bottom {
+            height: 50px;
+            background-color: #6c757d; /* темно-сірий */
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+        }
+
+        .side {
+            width: 100px;
+            background-color: #343a40; /* темно-сірий */
+            color: #ffffff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            box-sizing: border-box;
+        }
+
+        .center {
+            background-color: #f8f9fa; /* світло-сірий */
+            color: #333333;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        /* --- Розмітка за допомогою таблиці --- */
+        .table-layout table {
+            width: 100%;
+            height: 300px;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .table-layout td {
+            border: 1px solid #dee2e6;
+        }
+
+        /* --- Розмітка за допомогою плаваючих блоків --- */
+        .float-layout {
+            overflow: hidden;
+            height: 300px;
+            margin-bottom: 30px;
+            border: 1px solid #dee2e6;
+        }
+
+        .float-layout .side {
+            float: left;
+            height: 100%;
+        }
+
+        .float-layout .container {
+            margin-left: 100px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .float-layout .center {
+            flex-grow: 1;
+        }
+
+        /* --- Розмітка за допомогою inline-блоків --- */
+        .inline-block-layout {
+            display: inline-block;
+            height: 300px;
+            width: 100%;
+            border: 1px solid #dee2e6;
+            box-sizing: border-box;
+        }
+
+        .inline-block-layout .side {
+            display: inline-block;
+            height: 100%;
+            vertical-align: top;
+        }
+
+        .inline-block-layout .main {
+            display: inline-block;
+            width: calc(100% - 100px);
+            height: 100%;
+        }
+
+        .inline-block-layout .center {
+            height: calc(100% - 100px);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; color: #495057; margin: 20px 0;">Сторінка з трьома типами розмітки</h1>
+
+    <!-- 1. Розмітка за допомогою таблиці -->
+    <section class="table-layout">
+        <h2 style="text-align: center; color: #495057;">Розмітка за допомогою таблиці</h2>
+        <table>
+            <tr>
+                <td class="side" rowspan="3">Меню</td>
+                <td class="top">Заголовок</td>
+            </tr>
+            <tr>
+                <td class="center">Основний контент: Інформація про веб-сторінку</td>
+            </tr>
+            <tr>
+                <td class="bottom">Підвал</td>
+            </tr>
+        </table>
+    </section>
+
+    <!-- 2. Розмітка за допомогою плаваючих блоків -->
+    <section class="float-layout">
+        <h2 style="text-align: center; color: #495057;">Розмітка за допомогою плаваючих блоків</h2>
+        <div class="side">Меню</div>
+        <div class="container">
+            <div class="top">Заголовок</div>
+            <div class="center">Основний контент: Тут може бути ваш текст або зображення</div>
+            <div class="bottom">Підвал</div>
+        </div>
+    </section>
+
+    <!-- 3. Розмітка за допомогою inline-блоків -->
+    <section class="inline-block-layout">
+        <h2 style="text-align: center; color: #495057;">Розмітка за допомогою inline-блоків</h2>
+        <div class="side">Меню</div>
+        <div class="main">
+            <div class="top">Заголовок</div>
+            <div class="center">Основний контент: Опис структури сайту</div>
+            <div class="bottom">Підвал</div>
+        </div>
+    </section>
+</body>
+</html>
